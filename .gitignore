@@ -89,3 +89,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Custom ignore file
+## back-end
+### h2 database file
+*.h2.db
