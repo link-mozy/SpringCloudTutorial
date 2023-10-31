@@ -35,3 +35,38 @@ WHERE USERNAME = ?
 2. 값이 존재하는지 확인.
   - 만약 존재하지 않는다면, `Not Exist` Message 출력
   - 만약 존재한다면, Query 에서 구한 PASSWORD 와 입력 받은 PASSWORD 를 비교
+
+User Microservice 기능 추가 - Login
+
+![User Microservice 기능 추가 - Login](./res/images/UsersMicroserviceFeatureAdd_Login.png)
+
+- AuthenticationFilter
+  - `attemptAuthentication()` : 로그인 처리
+  - UsernamePasswordAuthenticationToken : 사용자 아이디(email), 비밀번호로 로그인 검증
+
+- UserDetailService
+  - `UserService` 에서 `UserDetailsService` 를 상속
+  - `loadUserByUsername()` : 우리가 만든 사용자 클래스에서 Spring Security 의 `org.springframework.security.core.userdetails.User` 를 리턴
+
+- AuthenticationFilter
+  - `successfulAuthentication()` : 로그인 성공 처리
+  - 정상적으로 로그인이 되었다면, JWT(Json Web Token) 생성
+
+전통적인 인증 서비스
+
+![User Microservice 기능 추가 - Login (전통적인 인증 서비스)](./res/images/UsersMicroserviceFeatureAdd_Login_BasicAuthSystem.png)
+
+- 서버 내부에서 세션/쿠키를 통해 관리
+
+Token 인증 서비스
+
+![User Microservice 기능 추가 - Login (토큰 인증 서비스)](./res/images/UsersMicroserviceFeatureAdd_Login_TokenAuthSystem.png)
+
+- JWT 기술을 주로 사용
+- 사용자로부터 인증에 관한 정보를 토큰으로 주고 받음
+
+JWT 인증 서비스
+
+![User Microservice 기능 추가 - Login (JWT 장점)](./res/images/UsersMicroserviceFeatureAdd_Login_JwtAdvantages.png)
+
+- Token 정보를 스토리지(DB) 에 관리하여 여러 시스템에서 __인증__ 처리가 가능
