@@ -26,3 +26,36 @@
 |User Service| /user-service/users : 사용자 정보 등록</br> /user-service/users : 전체 사용자 조회</br> /user-service/users/{user-id} : 사용자 정보, 주문 내역 조회</br> /user-service/login : 사용자 로그인 | POST </br> GET </br> GET </br> POST |
 |Order Service| /order-service/users/{user_id}/orders : 주문 등록</br> /order-service/users/{user_id}/orders : 주문 확인 | POST </br> GET |
 
+## Section 8. Spring Cloud Bus
+
+### Rabbit MQ 사용하기
+
+Rabbit MQ 설치
+
+```bash
+$ brew update
+
+$ brew install rabbitmq
+```
+
+__Tip.__ 설치 도중 Python3.9 관련 에러가 발생 한다면, `$ xcode-select --install` 명령어 실행
+
+Rabbit MQ 실행
+
+```bash
+# 서비스 등록
+$ brew services start rabbitmq
+
+# 서비스 등록하지않고 백그라운드에서 서버만 구동
+$ rabbitmq-server
+```
+
+Rabbit MQ 환경설정
+
+```bash
+$ export:PATH=$PATH:/usr/locl/sbin
+```
+
+Rabbit MQ 웹 접속
+
+`http://localhost:15672` 로 접속, 로그인 정보(username: guest, password: guest)
