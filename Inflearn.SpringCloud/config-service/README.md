@@ -2,6 +2,19 @@
 
 ## Config Service
 
+Changed configuration values
+
+- Server(Service) reboot
+
+- `Actuator` refresh
+  - Spring Boot Actuator
+    - Application 상태, 모니터링 
+    - Metric 수집을 위한 Http End point 제공
+
+- `Spring cloud bus` use
+  - 분산 시스템의 노드(microservice)를 경량 메시지 브로커(RabbitMQ)와 연결
+  - 상태 및 구성에 대한 변경 사항을 연결된 노드에게 전달(Broadcast)
+
 application yaml 파일 우선순위
 
 ![우선순위](./res/images/Prioritisation.png)
@@ -13,6 +26,12 @@ application yaml 파일 우선순위
 
 3. application-{name}-{profile}.yml 파일
    - eg. application-user-service-dev.yml
+
+Spring Cloud Bus
+
+![Spring Cloud Bus](./res/images/SpringCloudBus.png)
+
+- (`Spring Cloud Config Server` + `Spring Cloud Bus`) 를 사용하여 각 서비스에게 한번에 Configuration 정보를 변경 (with RabbitMQ)
 
 ## Troubleshooting
 
