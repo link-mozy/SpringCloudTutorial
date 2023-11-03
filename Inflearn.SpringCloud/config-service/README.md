@@ -33,6 +33,30 @@ Spring Cloud Bus
 
 - (`Spring Cloud Config Server` + `Spring Cloud Bus`) 를 사용하여 각 서비스에게 한번에 Configuration 정보를 변경 (with RabbitMQ)
 
+## Asymmetric Encryption
+
+비대칭키 암호화
+
+```shell
+$ curl --location 'localhost:8888/encrypt' \
+--header 'Content-Type: text/plain' \
+--data 'sa'
+```
+
+> response body :   
+> AQBwbcH8w0+vbPa8gN38biUNgraEfDJkiBSRLeWomVrFobHxUXQlz4c3rEAzsLYr+MNG6c/23ytOqt/k1Y0ZU9d28eFcFZohWQ92MogkcSzQ0RKzFLzPKUxzkGizC7NOaHhcSusRQ7NAwbpZ5XTR2OeIJBofiIrvhzremyQCpOIuGci1t5Gxo72PaMRk+Ce9p5lUNIsF8cvly4bz64uJj4dJkfYtH4bmiT1k1KrpkuFQS9LtXJ+zFGGtbaeiAi+MtQxorNUdL13d+29J6K1nMp4hFgsZXGvQA1nXZM+66Erv1eGXA6ev2fg7J/tidroz1pQbSFMTvNCdVM2TUEKbu0p0SrRZQwknLbG1kWSqhBQFfJmk1G1yplByXcWWwNeWTZM=
+
+비대칭키 복호화
+
+```shell
+$ curl --location 'localhost:8888/decrypt' \
+--header 'Content-Type: text/plain' \
+--data 'AQBwbcH8w0+vbPa8gN38biUNgraEfDJkiBSRLeWomVrFobHxUXQlz4c3rEAzsLYr+MNG6c/23ytOqt/k1Y0ZU9d28eFcFZohWQ92MogkcSzQ0RKzFLzPKUxzkGizC7NOaHhcSusRQ7NAwbpZ5XTR2OeIJBofiIrvhzremyQCpOIuGci1t5Gxo72PaMRk+Ce9p5lUNIsF8cvly4bz64uJj4dJkfYtH4bmiT1k1KrpkuFQS9LtXJ+zFGGtbaeiAi+MtQxorNUdL13d+29J6K1nMp4hFgsZXGvQA1nXZM+66Erv1eGXA6ev2fg7J/tidroz1pQbSFMTvNCdVM2TUEKbu0p0SrRZQwknLbG1kWSqhBQFfJmk1G1yplByXcWWwNeWTZM='
+```
+
+> response body :  
+> sa
+
 ## Troubleshooting
 
 __[SESSION 7. Configuration Service]__ Spring Cloud Config - 프로젝트 생성
