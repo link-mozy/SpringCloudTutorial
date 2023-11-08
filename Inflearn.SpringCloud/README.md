@@ -85,7 +85,7 @@ Rabbit MQ 웹 접속
 
 ## Section 9. 암호화 처리를 위한 Encryption 과 Decryption
 
-Asummetric Encryption
+Asymmetric Encryption
 
 - Public, Private Key 생성 (JDK keytool 사용)
 
