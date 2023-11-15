@@ -1,5 +1,6 @@
 package com.dream.userservice;
 
+import com.dream.userservice.error.FeignErrorDecoder;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,4 +35,10 @@ public class UserserviceApplication {
 	public Logger.Level feignLoggerLevel() {
 		return Logger.Level.FULL;
 	}
+
+	// FeignErrorDecoder 를 Component 등록하여 따로 Bean 을 만들 필요가 없다.
+//	@Bean
+//	public FeignErrorDecoder getFeignErrorDecoder() {
+//		return new FeignErrorDecoder();
+//	}
 }
