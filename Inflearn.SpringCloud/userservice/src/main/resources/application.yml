@@ -35,7 +35,7 @@ greeting:
 
 logging:
   level:
-    com.dream.userservice: DEBUG
+    com.dream.userservice.client: DEBUG
 
 management:
   endpoints:
